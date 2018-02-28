@@ -1,0 +1,67 @@
+<div>
+    <div class="panel panel-default ">
+        <div class="panel-heading text-center">
+            <h2>Calculate your BMR direction</h2>
+        </div>
+        <div class="panel-body text-center">
+            <form class="form-horizontal" novalidate>
+                <div class="form-group">
+                    <label>Sex:
+                        <select ng-model="sport.sex" class="form-control">
+                            <option selected >Choose sex</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Weight:
+                        <input type="text" ng-model="sport.weight" class="form-control"/>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Height:
+                        <input type="text" ng-model="sport.height" class="form-control"/>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Age:
+                        <input type="text" ng-model="sport.age" class="form-control"/>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Activity:
+                        <select ng-model="sport.activity" class="form-control">
+                            <option selected>Choose activity </option>
+                            <option value="1.0">1.0</option>
+                            <option value="1.2">1.2</option>
+                            <option value="1.0">1.4</option>
+                            <option value="1.2">1.6</option>
+                            <option value="1.0">1.8</option>
+                            <option value="1.2">2.0</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Target:
+                        <select ng-model="sport.target" class="form-control">
+                            <option selected>Choose target</option>
+                            <option value="reduction">Reduction</option>
+                            <option value="mass">Mass</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group text-center">
+                    <input type="button" value="Calculate" ng-click="calculateBMR(sport)" class="btn btn-primary btn-sm" />
+                    <button type="reset" class="btn btn-danger btn-sm">Reset</button>
+                </div>
+                <div class="has-error" ng-show="errorCalculate ? true : false">
+                    <p style="color: red">You must fill all fields!!!</p>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer">
+
+        </div>
+    </div>
+</div>

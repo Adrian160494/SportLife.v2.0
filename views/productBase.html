@@ -1,0 +1,70 @@
+<div class="product_base">
+    <div class="media-heading text-center">
+        <h1>Base of Products</h1>
+    </div>
+    <div class="col-md-12">
+
+        <div class="col-md-6">
+            <div class="searcher">
+                <input class="form-control" type="text" ng-model="search.protein" placeholder="Search!!"/>
+            </div>
+            <table class="table table-bordered table-hovered">
+                <thead>
+                <tr><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td></tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in proteins | filter: search.protein | sortFilter:'protein'">
+                    <td>{{item.product}}</td>
+                    <td>{{item.kcal}}</td>
+                    <td>{{item.protein}}</td>
+                    <td>{{item.carbon}}</td>
+                    <td>{{item.fat}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class="searcher">
+                <input class="form-control" type="text" ng-model="search.carbon" placeholder="Search!!"/>
+            </div>
+            <table class="table table-bordered table-hovered">
+                <thead>
+                <tr><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td></tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in carbons | filter: search.carbon | sortFilter:'carbon'">
+                    <td>{{item.product}}</td>
+                    <td>{{item.kcal}}</td>
+                    <td>{{item.protein}}</td>
+                    <td>{{item.carbon}}</td>
+                    <td>{{item.fat}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="searcher">
+                <input class="form-control" type="text" ng-model="search.fat" placeholder="Search!!"/>
+            </div>
+            <table class="table table-bordered table-hovered">
+                <thead>
+                <tr><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td></tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in fats | filter: search.fat | sortFilter:'fat'">
+                    <td>{{item.product}}</td>
+                    <td>{{item.kcal}}</td>
+                    <td>{{item.protein}}</td>
+                    <td>{{item.carbon}}</td>
+                    <td>{{item.fat}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
