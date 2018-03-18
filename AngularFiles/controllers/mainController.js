@@ -14,12 +14,17 @@ app.controller('mainController',['$scope','$http','getters','$location',function
     $scope.viewTable = 'protein';
     $scope.errorCalculate = undefined;
     $scope.validMeals = false;
+    $scope.targetProperties = {};
     $scope.creatorProducts = {
         protein: [],
         carbon: [],
         fat: []
     };
 
+    $scope.meals = [];
+
+    $scope.errorMeals = null;
+    $scope.showError = false;
     $scope.getAll = function () {
         getters.getProtein.then(function (response) {
             $scope.proteins = response.data;
@@ -130,7 +135,41 @@ app.controller('mainController',['$scope','$http','getters','$location',function
     };
 
     $scope.prepareMeals = function (params) {
-        console.log(params);
+        if(params !== undefined){
+            if(params.protein === undefined || params.carbon === undefined || params.fat === undefined){
+                $scope.errorMeals = 'Fill all fields with meal properties !!!';
+                $scope.showError = true;
+                console.log("Error");
+            } else {
+                $scope.errorMeals = null;
+                for(let i=0;i<$scope.creatorProducts.protein.length;i++){
+                    let protein = $scope.creatorProducts.protein[i];
+                    let carbon = $scope.creatorProducts.carbon[Math.floor(Math.random() * $scope.creatorProducts.carbon.length)];
+                    let fat = $scope.creatorProducts.fat[Math.floor(Math.random() * $scope.creatorProducts.fat.length)];
+                    let proteinQuantity = Math.floor((parseFloat(params.protein) * 100)/parseFloat(protein.protein));
+                    let carbonQuantity =Math.floor((parseFloat(params.carbon) * 100)/parseFloat(carbon.carbon));
+                    let fatQuantity = Math.floor((parseFloat(params.fat) * 100)/parseFloat(fat.fat));
+                    let meal = {
+                        proteinProduct: protein, quantityProtein: proteinQuantity,
+                        carbonProduct: carbon, quantityCarbon: carbonQuantity,
+                        fatProduct: fat, quantityFat: fatQuantity
+                    };
+                    $scope.meals.push(meal);
+                }
+                console.log($scope.meals);
+                $scope.targetProperties = {
+                    protein: params.protein,
+                    carbon: params.carbon,
+                    fat: params.fat
+                };
+                $location.path('/prepared_meals');
+            }
+        }else {
+            $scope.errorMeals = 'Fill all fields with meal properties !!!';
+            $scope.showError = true;
+            console.log("Error");
+        }
+
     }
 
 }]);

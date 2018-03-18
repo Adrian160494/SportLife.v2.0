@@ -3,10 +3,10 @@
         <div class="col-md-12">
             <table class="table table-hover table-bordered">
                 <thead>
-                <tr><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td></tr>
+                <tr class="heading-td"><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td></tr>
                 </thead>
                 <tbody>
-                <tr><td colspan="5" class="text-center" >High PROTEINS products(min 3 products)</td></tr>
+                <tr><td colspan="5"  class="text-center heading-td" >High PROTEINS products(min 3 products)</td></tr>
                 <tr ng-repeat="item in creatorProducts.protein ">
                     <td>{{item.product}}</td>
                     <td>{{item.kcal}}</td>
@@ -14,7 +14,7 @@
                     <td>{{item.carbon}}</td>
                     <td>{{item.fat}}</td>
                 </tr>
-                <tr><td colspan="5" class="text-center">High CARBONS products(min 4 products)</td></tr>
+                <tr><td colspan="5" class="text-center heading-td">High CARBONS products(min 4 products)</td></tr>
                 <tr ng-repeat="item in creatorProducts.carbon ">
                     <td>{{item.product}}</td>
                     <td>{{item.kcal}}</td>
@@ -22,7 +22,7 @@
                     <td>{{item.carbon}}</td>
                     <td>{{item.fat}}</td>
                 </tr>
-                <tr><td colspan="5" class="text-center">High FATS products(min 2 products)</td></tr>
+                <tr><td colspan="5" class="text-center heading-td">High FATS products(min 2 products)</td></tr>
                 <tr ng-repeat="item in creatorProducts.fat ">
                     <td>{{item.product}}</td>
                     <td>{{item.kcal}}</td>
@@ -34,16 +34,17 @@
             </table>
         </div>
         <div class="col-md-12 text-center">
-            <form class="form-inline">
+            <form class="form-inline" novalidate method="get" action="">
                 <input ng-model="myBmi.protein" class="form-control" placeholder="Protein[g]"/>
                 <input ng-model="myBmi.carbon"  class="form-control" placeholder="Carbon[g]" />
                 <input ng-model="myBmi.fat" class="form-control" placeholder="Fat[g]"/>
             </form>
+            <span class="error">{{errorMeals}}</>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="btns-grup">
                 <button class="btn btn-default" ng-click="changeViewTable('protein')">Proteins</button>
                 <button class="btn btn-default" ng-click="changeViewTable('carbon')">Carbons</button>
@@ -54,7 +55,7 @@
                 <div ng-show="viewTable == 'protein' ? true : false">
                     <table class="table table-bordered table-hovered">
                         <thead>
-                        <tr><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td><td>Add</td></tr>
+                        <tr class="heading-td"><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td><td>Add</td></tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in proteins | sortFilter:'carbon'">
@@ -71,7 +72,7 @@
                 <div ng-show="viewTable =='carbon' ? true : false">
                     <table class="table table-bordered table-hovered">
                         <thead>
-                        <tr><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td><td>Add</td></tr>
+                        <tr class="heading-td"><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td><td>Add</td></tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in carbons | sortFilter:'carbon'">
@@ -88,7 +89,7 @@
                 <div ng-show="viewTable == 'fat' ? true : false">
                     <table class="table table-bordered table-hovered">
                         <thead>
-                        <tr><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td><td>Add</td></tr>
+                        <tr class="heading-td"><td>Product</td><td>Kcal</td><td>Protein[g]</td><td>Carbon[g]</td><td>Fat[g]</td><td>Add</td></tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in fats | sortFilter:'carbon'">

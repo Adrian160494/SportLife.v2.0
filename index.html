@@ -19,8 +19,8 @@
     <script src="AngularFiles/filters/filters.js"></script>
 </head>
 <body ng-controller="mainController" onscroll="onScroll()">
-   <div class="content" >
-       <div class="container">
+   <div class="content">
+       <div class="navbar-mineContainer">
            <div class="navbar-mine">
                <div class="navbar nav">
                    <div class="slide-button" onclick="slide()">
@@ -28,6 +28,9 @@
                    </div>
                    <div class="branda">
                        <span class="branda">SportLife v2.0</span>
+                   </div>
+                   <div class="logo">
+                       <img src="image/navbar-logo.png" alt="doesn't work" width="300px" height="110px"/>
                    </div>
                    <ul class="nav-links nav navbar-nav pull-right">
                        <li onclick="changeMeal()"><a href="#/meal_creator">Meal Creator</a></li>
@@ -38,12 +41,14 @@
                </div>
            </div>
        </div>
-       <div class="main-content container">
+       <div class="main-content row">
             <div ng-view>
             </div>
        </div>
-       <div class="footer text-center">
-           <p>Copyright by Adrian Ciejka</p>
+       <div class="footerContainer">
+           <div class="footer text-center">
+               <p class="copyright">Copyright by Adrian Ciejka</p>
+           </div>
        </div>
    </div>
    <script src="js/events.js"></script>

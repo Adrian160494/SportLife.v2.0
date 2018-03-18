@@ -1,0 +1,13 @@
+<div class="meals">
+    <div class="meal_panel" ng-repeat="meal in meals">
+        <div class="meal_panel_heading">
+            <h1>Meal proposition {{$index + 1}} !</h1>
+        </div>
+        <div class="meal_panel_body">
+            <p>Meal properties to achieve: {{targetProperties.protein}}[g] of proteins, {{targetProperties.carbon}}[g] of carbons and {{targetProperties.fat}}[g] of fats!</p>
+            <p>Protein product : {{meal.proteinProduct.product}} --->  {{meal.quantityProtein}} [g]</p>
+            <p>Carbon product : {{meal.carbonProduct.product}} --->  {{meal.quantityCarbon}} [g]</p>
+            <p>Fat product : {{meal.fatProduct.product}} --->  {{meal.quantityFat}} [g]</p>
+        </div>
+    </div>
+</div>

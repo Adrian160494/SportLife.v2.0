@@ -11,6 +11,7 @@ let onScroll = () => {
 };
 
 let slideDown = ()=> {
+    $('.navbar-mine').css('background', 'rgba(100,100,100,0.8)');
     $('.arrow-circle').removeClass('unanimate-arrow');
         $('.arrow-circle').addClass('animate-arrow');
         $('.branda').hide('slide',1000);
@@ -19,12 +20,15 @@ let slideDown = ()=> {
         },1000,'swing');
         setTimeout(function () {
             $('.nav-links').show('blind',500);
+            $('.logo').show('slide',100);
         },1500)
 };
 let slideUp = () => {
+    $('.navbar-mine').css('background', 'rgba(100,100,100,0.5)');
     $('.arrow-circle').removeClass('animate-arrow');
     $('.arrow-circle').addClass('unanimate-arrow');
         $('.nav-links').css('display', 'none');
+        $('.logo').css('display','none');
         $('.navbar-mine').animate({
             height: '50px',
         }, 1000, 'swing');

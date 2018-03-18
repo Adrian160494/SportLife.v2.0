@@ -13,5 +13,7 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/contact.html'
     }).when('/conclusion',{
         templateUrl: 'views/conclusion.html'
+    }).when('/prepared_meals',{
+        templateUrl: 'views/mealsView.html'
     })
 });
