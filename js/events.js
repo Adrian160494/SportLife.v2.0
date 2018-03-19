@@ -1,6 +1,8 @@
 let count = 0;
 let scrollinCount = 0;
 
+let menuCount = 0;
+
 
 
 let onScroll = () => {
@@ -80,3 +82,29 @@ let changeBase = () =>{
 
     });
 };
+
+let showMobile =() => {
+    $('.navigation-mobile').show('slide',1000);
+};
+
+let hideMobile = () => {
+    $('.navigation-mobile').hide('blind',1000);
+};
+
+let menu = () => {
+    if(menuCount==0){
+        showMobile();
+        menuCount++;
+        $('.menuButton').removeClass('glyphicon-menu-hamburger');
+        $('.menuButton').addClass('glyphicon-plus-sign');
+        $('.menuButton').removeClass('unrotate');
+        $('.menuButton').addClass('rotate');
+    } else {
+        hideMobile();
+        menuCount=0;
+        $('.menuButton').addClass('glyphicon-menu-hamburger');
+        $('.menuButton').removeClass('glyphicon-plus-sign');
+        $('.menuButton').addClass('unrotate');
+        $('.menuButton').removeClass('rotate');
+    }
+}
