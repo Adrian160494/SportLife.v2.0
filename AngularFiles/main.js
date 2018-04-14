@@ -3,7 +3,7 @@ let app = angular.module('main',['ngRoute']);
 app.config(function ($routeProvider) {
     $routeProvider.when('/',{
         templateUrl:'views/home.html'
-    }).when('/calculator',{
+    }).when('/bmr',{
         templateUrl:'views/calculator.html'
     }).when('/product_base',{
         templateUrl: 'views/productBase.html',
@@ -15,5 +15,7 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/conclusion.html'
     }).when('/prepared_meals',{
         templateUrl: 'views/mealsView.html'
+    }).when('/calculator',{
+        templateUrl:'views/makroCalculator.html'
     })
 });

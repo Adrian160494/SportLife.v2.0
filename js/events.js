@@ -62,6 +62,7 @@ let changeMeal = () =>{
         backgroundSize: 'cover'
 
     });
+    hideAllMobile();
 };
 
 let changeBMR  = () =>{
@@ -72,6 +73,7 @@ let changeBMR  = () =>{
         backgroundSize: 'cover'
 
     });
+    hideAllMobile();
 };
 let changeBase = () =>{
     $('body').css({
@@ -81,6 +83,20 @@ let changeBase = () =>{
         backgroundSize: 'cover'
 
     });
+    hideAllMobile();
+
+};
+
+let changeCalc = () =>{
+    $('body').css({
+        background: 'url(./image/backgorund4.jpg)',
+        backgroundAttachment: 'fixed',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
+
+    });
+    hideAllMobile();
+
 };
 
 let showMobile =() => {
@@ -108,3 +124,14 @@ let menu = () => {
         $('.menuButton').removeClass('rotate');
     }
 }
+
+let hideAllMobile = () => {
+    hideMobile();
+    menuCount=0;
+    $('.menuButton').addClass('glyphicon-menu-hamburger');
+    $('.menuButton').removeClass('glyphicon-plus-sign');
+    $('.menuButton').addClass('unrotate');
+    $('.menuButton').removeClass('rotate');
+}
+
+

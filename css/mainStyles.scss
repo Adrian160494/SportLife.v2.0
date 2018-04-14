@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide|Monoton');
 
-$maxMargin: 10px;
-$maxxMargin: 30px;
+$maxMargin: 0;
+$maxxMargin: 10px;
 $maxxxMargin: 70px;
 $maxxxxMargin: 50px;
 $maxxxxxMargin: 120px;
@@ -20,8 +20,14 @@ $maxxxxxMargin: 120px;
 }
 
 body{
-  width: 100%;
-  height:100%;
+  @media screen and (min-width: 400px){
+    width: 100%;
+    height:100%;
+  }
+  @media screen and (max-width: 400px){
+    width: 500px;
+    height:100%;
+  }
   background-size: cover;
   background: url(../image/background0.jpg);
   background-repeat: no-repeat;
@@ -54,15 +60,19 @@ body{
       width:100%;
       top:0;
       .navbar-mine{
+        border: 2px solid black;
         z-index: 1001;
         @media screen and (max-width: 400px){
           margin: 0 $maxMargin;
+          height: 50px !important;
         }
         @media screen and (min-width: 400px) and (max-width: 768px){
           margin: 0 $maxxMargin;
+          height: 50px !important;
         }
         @media screen and (min-width: 768px) and (max-width: 992px){
           margin: 0 $maxxxMargin;
+          height: 50px !important;
         }
         @media screen and (min-width: 992px) and (max-width: 1200px){
           margin: 0 $maxxxxMargin;
@@ -87,35 +97,37 @@ body{
           right:10px;
           top:0;
           z-index:1001;
-          @include borderRadius(100px);
-          background: white;
           width:30px;
+          color:white;
           height:30px;
           cursor: pointer;
           span{
             position: relative;
-            font-size:21px;
-            left: calc(50% - 11px);
-            top: calc(50% - 11px);
+            font-size:30px;
+            left: calc(50% - 10px);
+            top: calc(50% - 23px);
             cursor: pointer;
             &:hover{
-              color:white;
+              color:black;
             }
           }
           &:hover{
-            background: black;
+
           }
 
         }
         .branda{
           @media screen and (max-width: 400px){
             font-size:11px;
+            display: block !important;
           }
           @media screen and (min-width: 400px) and (max-width: 768px){
             font-size:14px;
+            display: block !important;
           }
           @media screen and (min-width: 768px) and (max-width: 992px){
             font-size:20px;
+            display: block !important;
           }
           @media screen and (min-width: 992px) and (max-width: 1100px){
             font-size:20px;
@@ -132,7 +144,7 @@ body{
           color:white;
           font-weight: bold;
           font-family: 'Monoton', cursive;
-          padding:0;
+          padding: 0;
           margin:0;
           letter-spacing:15px;
           position: absolute;
@@ -154,15 +166,16 @@ body{
           @media screen and (min-width: 992px) and (max-width: 1100px){
             display: none !important;
           }
-          @media screen and (min-width: 1100px) and (max-width: 1200px){
+          @media screen and (min-width: 1100px) and (max-width: 1300px){
             display: none !important;
+            text-align: center;
           }
-          @media screen and (min-width: 1200px){
+          @media screen and (min-width: 1300px){
             padding: 0 0;
+            display: none;
           }
           position: absolute;
           left:20px;
-          display: none;
         }
         height: 50px;
         background: rgba(100,100,100,0.5);
@@ -173,11 +186,22 @@ body{
         padding: 10px;
         .nav-links{
           font-family: 'Audiowide', cursive;
-          margin-top:30px;
+          margin-top:25px;
           display:none;
+
 
         }
         ul{
+          @media screen and (max-width: 400px){
+          display:none !important;
+          }
+          @media screen and (min-width: 400px) and (max-width: 768px){
+            display:none !important;
+          }
+          @media screen and (min-width: 768px) and (max-width: 992px){
+            display:none !important;
+          }
+
           li{
             @include borderRadius(20px);
             border: 3px solid white;
@@ -231,6 +255,7 @@ body{
         font-size: 30px;
         color:white;
         right:10px;
+        cursor: pointer;
         top:10px;
       }
       .navigation-mobile{
@@ -307,7 +332,6 @@ body{
     }
 
     .main-content{
-      margin: 20px;
       padding: 20px;
       background: white;
       z-index: 500;
@@ -332,6 +356,24 @@ body{
       }
 
       .creator{
+        @media screen and (max-width: 400px){
+          font-size:10px;
+        }
+        @media screen and (min-width: 400px) and (max-width: 500px){
+          font-size:10px;
+        }
+        @media screen and (min-width: 500px) and (max-width: 768px){
+          font-size:12px;
+        }
+        @media screen and (min-width: 768px) and (max-width: 992px){
+          font-size:13px;
+        }
+        @media screen and (min-width: 992px) and (max-width: 1200px){
+          font-size:13px;
+        }
+        @media screen and (min-width: 1200px){
+          font-size:14px;
+        }
         .heading-td{
           background: rgba(70,70,70,1);
           color:white;
@@ -361,6 +403,79 @@ body{
               -o-transition: all 1s;
               transition: all 1s;
             }
+            &:disabled{
+              @include borderRadius(100px);
+              background: rgba(10,10,10,0.5);
+              color: white;
+              cursor: pointer;
+              font-size: 20px;
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+      .makroCreator{
+        @media screen and (max-width: 400px){
+          font-size:10px;
+        }
+        @media screen and (min-width: 400px) and (max-width: 500px){
+          font-size:10px;
+        }
+        @media screen and (min-width: 500px) and (max-width: 768px){
+          font-size:12px;
+        }
+        @media screen and (min-width: 768px) and (max-width: 992px){
+          font-size:13px;
+        }
+        @media screen and (min-width: 992px) and (max-width: 1200px){
+          font-size:13px;
+        }
+        @media screen and (min-width: 1200px){
+          font-size:14px;
+        }
+        .inputMakro{
+          @media screen and (max-width: 400px){
+            width:30px;
+          }
+          @media screen and (min-width: 400px) and (max-width: 500px){
+            width:40px;
+          }
+          @media screen and (min-width: 500px) and (max-width: 768px){
+            width:50px;
+          }
+          @media screen and (min-width: 768px) and (max-width: 992px){
+            width:60px;
+          }
+          @media screen and (min-width: 992px) and (max-width: 1200px){
+            width:70px;
+          }
+          @media screen and (min-width: 1200px){
+            width:80px;
+          }
+        }
+        .addButtonMakro{
+          @include borderRadius(100px);
+          background: red;
+          color: white;
+          cursor: pointer;
+          font-size: 20px;
+          padding: 5px 10px;
+          &:hover{
+            background: black;
+            cursor: pointer;
+            -webkit-transition: all 1s;
+            -moz-transition: all 1s;
+            -ms-transition: all 1s;
+            -o-transition: all 1s;
+            transition: all 1s;
+          }
+          &:disabled{
+            @include borderRadius(100px);
+            background: rgba(10,10,10,0.5);
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px 10px;
           }
         }
       }
@@ -410,22 +525,119 @@ body{
 
       .product_base{
         @media screen and (max-width: 400px){
+          font-size:10px;
           margin: 0 $maxMargin;
         }
-        @media screen and (min-width: 400px) and (max-width: 768px){
+        @media screen and (min-width: 400px) and (max-width: 500px){
+          font-size:10px;
+          margin: 0 $maxxMargin;
+        }
+        @media screen and (min-width: 500px) and (max-width: 768px){
+          font-size:12px;
           margin: 0 $maxxMargin;
         }
         @media screen and (min-width: 768px) and (max-width: 992px){
+          font-size:13px;
           margin: 0 $maxxxMargin;
         }
         @media screen and (min-width: 992px) and (max-width: 1200px){
+          font-size:13px;
           margin: 0 $maxxxxMargin;
         }
         @media screen and (min-width: 1200px){
+          font-size:14px;
           margin: 0 $maxxxxxMargin;
         }
+
         background: rgba(250,250,250,0.7);
         @include specifiedBorderRadius(30px);
+      }
+
+      .calculator{
+        label{
+          @media screen and (max-width: 400px){
+            font-size:11px;
+            margin: 0 $maxMargin;
+          }
+          @media screen and (min-width: 400px) and (max-width: 500px){
+            font-size:11px;
+            margin: 0 $maxxMargin;
+          }
+          @media screen and (min-width: 500px) and (max-width: 768px){
+            font-size:13px;
+            margin: 0 $maxxMargin;
+          }
+          @media screen and (min-width: 768px) and (max-width: 992px){
+            font-size:14px;
+            margin: 0 $maxxxMargin;
+          }
+          @media screen and (min-width: 992px) and (max-width: 1200px){
+            font-size:14px;
+            margin: 0 $maxxxxMargin;
+          }
+          @media screen and (min-width: 1200px){
+            font-size:15px;
+            margin: 0 $maxxxxxMargin;
+          }
+        }
+
+      }
+      .conclusion{
+        .well{
+          span{
+            @media screen and (max-width: 400px){
+              font-size:10px;
+              margin: 0 $maxMargin;
+            }
+            @media screen and (min-width: 400px) and (max-width: 500px){
+              font-size:10px;
+              margin: 0 $maxxMargin;
+            }
+            @media screen and (min-width: 500px) and (max-width: 768px){
+              font-size:12px;
+              margin: 0 $maxxMargin;
+            }
+            @media screen and (min-width: 768px) and (max-width: 992px){
+              font-size:13px;
+              margin: 0 $maxxxMargin;
+            }
+            @media screen and (min-width: 992px) and (max-width: 1200px){
+              font-size:13px;
+              margin: 0 $maxxxxMargin;
+            }
+            @media screen and (min-width: 1200px){
+              font-size:14px;
+              margin: 0 $maxxxxxMargin;
+            }
+          }
+        }
+        label{
+          text-align: left;
+          @media screen and (max-width: 400px){
+            font-size:11px;
+            margin: 0 $maxMargin;
+          }
+          @media screen and (min-width: 400px) and (max-width: 500px){
+            font-size:11px;
+            margin: 0 $maxxMargin;
+          }
+          @media screen and (min-width: 500px) and (max-width: 768px){
+            font-size:13px;
+            margin: 0 $maxxMargin;
+          }
+          @media screen and (min-width: 768px) and (max-width: 992px){
+            font-size:14px;
+            margin: 0 $maxxxMargin;
+          }
+          @media screen and (min-width: 992px) and (max-width: 1200px){
+            font-size:14px;
+            margin: 0 $maxxxxMargin;
+          }
+          @media screen and (min-width: 1200px){
+            font-size:15px;
+            margin: 0 $maxxxxxMargin;
+          }
+        }
       }
     }
     .footerContainer{
@@ -433,6 +645,7 @@ body{
       padding:0;
       .footer{
         position: fixed;
+        border: 2px solid black;
         bottom:0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
@@ -445,10 +658,10 @@ body{
             font-size:11px;
           }
           @media screen and (min-width: 400px) and (max-width: 768px){
-            font-size:14px;
+            font-size:13px;
           }
           @media screen and (min-width: 768px) and (max-width: 992px){
-            font-size:20px;
+            font-size:17px;
           }
           @media screen and (min-width: 992px) and (max-width: 1100px){
             font-size:20px;
@@ -468,11 +681,11 @@ body{
         }
         @media screen and (max-width: 400px){
           margin: 0 $maxMargin;
-          width: calc(100% - 20px);
+          width: 100%;
         }
         @media screen and (min-width: 400px) and (max-width: 768px){
           margin: 0 $maxxMargin;
-          width: calc(100% - 60px);
+          width: calc(100% - 20px);
         }
         @media screen and (min-width: 768px) and (max-width: 992px){
           margin: 0 $maxxxMargin;
@@ -529,4 +742,26 @@ table{
 
 .unrotate{
   transform: rotate(0deg);
+}
+
+.tab-heading{
+  font-family: 'Audiowide', cursive;
+  @media screen and (max-width: 400px){
+    font-size:15px;
+  }
+  @media screen and (min-width: 400px) and (max-width: 500px){
+    font-size:15px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 768px){
+    font-size:19px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 992px){
+    font-size:22px;
+  }
+  @media screen and (min-width: 992px) and (max-width: 1200px){
+    font-size:27px;
+  }
+  @media screen and (min-width: 1200px){
+    font-size:30px;
+  }
 }

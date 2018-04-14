@@ -1,44 +1,28 @@
-<div class="creator">
+<div class="makroCreator">
     <div class="col-md-12">
         <div class="col-md-12">
             <table class="table table-hover table-bordered">
                 <thead>
-                <tr class="heading-td"><td>Product</td><td>Kcal</td><td>Protein</td><td>Carbon</td><td>Fat</td></tr>
+                <tr class="heading-td"><td>Product</td><td>Kcal</td><td>Protein</td><td>Carbon</td><td>Fat</td><td>Weight</td></tr>
                 </thead>
                 <tbody>
-                <tr><td colspan="5"  class="text-center heading-td" >High PROTEINS products(min 3 products)</td></tr>
-                <tr ng-repeat="item in creatorProducts.protein ">
-                    <td><button class="btn btn-danger" ng-click="removeFromCreator($index,'protein',item)">-</button>{{item.product}}</td>
-                    <td>{{item.kcal}}</td>
-                    <td>{{item.protein}}</td>
-                    <td>{{item.carbon}}</td>
-                    <td>{{item.fat}}</td>
-                </tr>
-                <tr><td colspan="5" class="text-center heading-td">High CARBONS products(min 4 products)</td></tr>
-                <tr ng-repeat="item in creatorProducts.carbon ">
-                    <td><button class="btn btn-danger" ng-click="removeFromCreator($index,'carbon',item)">-</button>{{item.product}}</td>
-                    <td>{{item.kcal}}</td>
-                    <td>{{item.protein}}</td>
-                    <td>{{item.carbon}}</td>
-                    <td>{{item.fat}}</td>
-                </tr>
-                <tr><td colspan="5" class="text-center heading-td">High FATS products(min 2 products)</td></tr>
-                <tr ng-repeat="item in creatorProducts.fat ">
-                    <td><button class="btn btn-danger" ng-click="removeFromCreator($index,'fat',item)">-</button>{{item.product}}</td>
-                    <td>{{item.kcal}}</td>
-                    <td>{{item.protein}}</td>
-                    <td>{{item.carbon}}</td>
-                    <td>{{item.fat}}</td>
+                <tr ng-repeat="item in makroProducts ">
+                    <td><button class="btn btn-danger" ng-click="removeFromMakro($index)">-</button> {{item.product.product}}</td>
+                    <td>{{item.product.kcal}}</td>
+                    <td>{{item.product.protein}}</td>
+                    <td>{{item.product.carbon}}</td>
+                    <td>{{item.product.fat}}</td>
+                    <td><input class="inputMakro" type="number" id="makroInput{{$index}}" /></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-md-12 text-center">
-            <form class="form-inline" novalidate method="get" action="">
-                <input ng-model="myBmi.protein" class="form-control" placeholder="Protein[g]"/>
-                <input ng-model="myBmi.carbon"  class="form-control" placeholder="Carbon[g]" />
-                <input ng-model="myBmi.fat" class="form-control" placeholder="Fat[g]"/>
-            </form>
+            <table class="table table-bordered">
+                <tr><td>Protein</td><td>Carbon</td><td>Fat</td><td>Kcal</td></tr>
+                <tr><td><label class="form-control" id="proteinLabel"></label></td><td><label class="form-control" id="carbonLabel"></label></td><td><label class="form-control" id="fatLabel"></label></td><td><label class="form-control" id="kcalLabel"</td></tr>
+            </table>
+            <button class="btn btn-default" ng-click="calculateMakro()" >Oblicz</button>
             <span class="error">{{errorMeals}}</span>
         </div>
         <div class="col-md-2">
@@ -49,7 +33,6 @@
                 <button class="btn btn-default" ng-click="changeViewTable('protein')">Proteins</button>
                 <button class="btn btn-default" ng-click="changeViewTable('carbon')">Carbons</button>
                 <button class="btn btn-default" ng-click="changeViewTable('fat')">Fats</button>
-                <button id="btn_prepare" class="btn btn-primary pull-right" ng-click="prepareMeals(myBmi)">Prepare</button>
             </div>
             <div class="table-view">
                 <div ng-show="viewTable == 'protein' ? true : false">
@@ -64,7 +47,7 @@
                             <td>{{item.protein}} g</td>
                             <td>{{item.carbon}} g</td>
                             <td>{{item.fat}} g </td>
-                            <td class="text-center"><button class="myAddButton" id="proteinButton{{$index}}" ng-click="addToCreator(item,$index)">+</button></td>
+                            <td class="text-center"><button class="addButtonMakro" id="makroProteinButton{{$index}}" ng-click="addToMakro(item,$index, 'protein')">+</button></td>
                         </tr>
                         </tbody>
                     </table>
@@ -81,7 +64,7 @@
                             <td>{{item.protein}} g</td>
                             <td>{{item.carbon}} g</td>
                             <td>{{item.fat}} g</td>
-                            <td class="text-center"><button class="myAddButton" id="carbonButton{{$index}}" ng-click="addToCreator(item, $index)">+</button></td>
+                            <td class="text-center"><button class="addButtonMakro" id="makroCarbonButton{{$index}}" ng-click="addToMakro(item, $index, 'carbon')">+</button></td>
                         </tr>
                         </tbody>
                     </table>
@@ -98,7 +81,7 @@
                             <td>{{item.protein}} g</td>
                             <td>{{item.carbon}} g</td>
                             <td>{{item.fat}} g</td>
-                            <td class="text-center"><button class="myAddButton" id="fatButton{{$index}}" ng-click="addToCreator(item,$index)">+</button></td>
+                            <td class="text-center"><button class="addButtonMakro" id="makroFatButton{{$index}}" ng-click="addToMakro(item,$index, 'fat')">+</button></td>
                         </tr>
                         </tbody>
                     </table>
