@@ -1,7 +1,7 @@
 let app = angular.module('main',['ngRoute']);
 
 app.config(function ($routeProvider) {
-    $routeProvider.when('/',{
+    $routeProvider.when('/home',{
         templateUrl:'views/home.html'
     }).when('/bmr',{
         templateUrl:'views/calculator.html'

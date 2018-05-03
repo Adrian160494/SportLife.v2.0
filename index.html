@@ -33,10 +33,10 @@
                        <img src="image/navbar-logo.png" alt="doesn't work" width="300px" height="110px"/>
                    </div>
                    <ul class="nav-links nav navbar-nav pull-right">
-                       <li onclick="changeMeal()"><a href="#/meal_creator">Meal Creator</a></li>
-                       <li onclick="changeBMR()"><a href="#/bmr">BMR</a></li>
-                       <li onclick="changeBase()"><a href="#/product_base">Product Base</a></li>
-                       <li onclick="changeCalc()"><a href="#/calculator">Calculator</a></li>
+                       <li ng-click="changeViewHome()" onclick="changeMeal()"><a href="#/meal_creator">Meal Creator</a></li>
+                       <li ng-click="changeViewHome()" onclick="changeBMR()"><a href="#/bmr">BMR</a></li>
+                       <li ng-click="changeViewHome()" onclick="changeBase()"><a href="#/product_base">Product Base</a></li>
+                       <li ng-click="changeViewHome()" onclick="changeCalc()"><a href="#/calculator">Calculator</a></li>
                    </ul>
                </div>
            </div>
@@ -46,10 +46,10 @@
                    <span class="branda2">SportLife v2.0</span>
                </div>
                <ul class="nav-links2 nav">
-                   <li onclick="changeMeal()"><a href="#/meal_creator">Meal Creator</a></li>
-                   <li onclick="changeBMR()"><a href="#/bmr">BMR</a></li>
-                   <li onclick="changeBase()"><a href="#/product_base">Product Base</a></li>
-                   <li onclick="changeCalc()"><a href="#/calculator">Calculator</a></li>
+                   <li ng-click="changeViewHome()" onclick="changeMeal()"><a href="#/meal_creator">Meal Creator</a></li>
+                   <li ng-click="changeViewHome()" onclick="changeBMR()"><a href="#/bmr">BMR</a></li>
+                   <li ng-click="changeViewHome()" onclick="changeBase()"><a href="#/product_base">Product Base</a></li>
+                   <li ng-click="changeViewHome()" onclick="changeCalc()"><a href="#/calculator">Calculator</a></li>
                </ul>
                <div class="logo2">
                    <img src="image/navbar-logo.png" alt="doesn't work" width="300px" height="110px"/>
@@ -57,7 +57,11 @@
            </div>
        </div>
        <div class="main-content row">
-            <div ng-view>
+           <div ng-include="'./home.html'" ng-show="showHome">
+
+           </div>
+            <div ng-view ng-hide="showHome">
+
             </div>
        </div>
        <div class="footerContainer">

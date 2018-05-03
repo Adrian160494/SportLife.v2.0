@@ -11,6 +11,7 @@ app.controller('mainController',['$scope','$http','getters','$location',function
             cpmTarget: ''
     };
     let protein=0, carbon=0, fat=0, protein2 =0, carbon2=0, fat2=0, kcal=0;
+    $scope.showHome = true;
     $scope.viewTable = 'protein';
     $scope.errorCalculate = undefined;
     $scope.validMeals = false;
@@ -65,9 +66,9 @@ app.controller('mainController',['$scope','$http','getters','$location',function
                    } else {
                        cpmTarget = cpm + 300;
                    }
-                   $scope.calculatedBMR.cpm = cpm;
-                   $scope.calculatedBMR.cpmTarget = cpmTarget;
-                   $scope.calculatedBMR.bmr = bmrr;
+                   $scope.calculatedBMR.cpm = Math.floor(cpm);
+                   $scope.calculatedBMR.cpmTarget = Math.floor(cpmTarget);
+                   $scope.calculatedBMR.bmr = Math.floor(bmrr);
                } else {
                    let first = 9.6 * $scope.calculatedBMR.weight;
                    let second = 1.8 * $scope.calculatedBMR.height;
@@ -81,11 +82,12 @@ app.controller('mainController',['$scope','$http','getters','$location',function
                    } else {
                        cpmTarget = cpm + 300;
                    }
-                   $scope.calculatedBMR.cpm = cpm;
-                   $scope.calculatedBMR.cpmTarget = cpmTarget;
-                   $scope.calculatedBMR.bmr = bmrr;
+                   $scope.calculatedBMR.cpm = Math.floor(cpm);
+                   $scope.calculatedBMR.cpmTarget = Math.floor(cpmTarget);
+                   $scope.calculatedBMR.bmr = Math.floor(bmrr);
                }
            }
+           $scope.changeViewHome();
             $location.path('/conclusion');
         }
 
@@ -262,6 +264,10 @@ app.controller('mainController',['$scope','$http','getters','$location',function
             $scope.showError = true;
         }
 
+    };
+
+    $scope.changeViewHome = function () {
+        $scope.showHome = false;
     }
 
 }]);
